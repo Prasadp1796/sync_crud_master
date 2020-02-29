@@ -42,7 +42,8 @@
                         <td><%- user.email %></td>
                         <td><%- user.contact %></td>
                         <td>
-                            <button class="btn btn-warning text-light">Edit</button>
+                            <a class="btn btn-warning text-light" href="/editUser?UserID=<%=user._id%>">Edit</a>
+                            <a class="btn btn-danger text-light" href="/deleteUser?UserID=<%=user._id%>">Delete</a>
                         </td>
                     </tr>
                     <% } %>

@@ -31,4 +31,33 @@ router.post("/createUser", function (req, res) {
     })
 });
 
+
+//Method To Edit User Details
+router.route("/editUser").get(function (req, res) {
+    userSchema.findOne({_id: req.query.UserID}, function (err, user) {
+        if(err)
+            throw err;
+        else
+            res.render("ManageUsers/editForm", {User: user});
+    });
+
+}).post(function (req, res) {
+    userSchema.findOneAndUpdate({_id: req.body._id}, {$set: req.body},  {useFindAndModify: true},function (err) {
+        if(err)
+            throw err;
+        else
+            res.redirect("/manageUsers");
+    })
+});
+
+//Method To Delete User
+router.get('/deleteUser', function (req, res) {
+   userSchema.findOneAndRemove({_id: req.query.UserID}, {useFindAndModify: true},function (err) {
+       if(err)
+           throw err;
+       else
+           res.redirect("/manageUsers");
+   })
+});
+
 module.exports = router;
