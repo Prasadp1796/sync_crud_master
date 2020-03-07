@@ -32,6 +32,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/sync_crud_master", { useNewUrlParser
 
 app.use('/', indexRouter);
 app.use('/', require('./routes/manageUsers'));
+app.use('/', require('./routes/manageDepartments'));
 app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler

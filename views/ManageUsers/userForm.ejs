@@ -44,6 +44,17 @@
                         </div>
                     </div>
                     <div class="form-row">
+                        <div class="form-group col-6">
+                            <label for="departmentId">Select Department</label>
+                            <select name="departmentId" id="departmentId" class="form-control">
+                                <option value="" selected disabled>---Select Department---</option>
+                                <%for(var dept of departments){%>
+                                    <option value="<%-dept._id%>"><%-dept.departmentName%></option>
+                                <%}%>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
                         <input type="submit" class="btn btn-primary mx-auto" value="Create User">
                     </div>
 
